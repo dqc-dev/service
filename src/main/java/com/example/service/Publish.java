@@ -4,7 +4,7 @@ import org.eclipse.paho.client.mqttv3.*;
 import org.eclipse.paho.client.mqttv3.persist.MemoryPersistence;
 
 public class Publish {
-    public static final String HOST = "tcp://192.168.2.181:1883";
+    public static final String HOST = "tcp://192.168.6.123:1883";
     public static final String TOPIC = "topic2";
     private static final String clientid = "server12";
 
