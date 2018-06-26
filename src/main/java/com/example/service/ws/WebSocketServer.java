@@ -5,7 +5,6 @@ import org.springframework.stereotype.Component;
 import javax.websocket.*;
 import javax.websocket.server.ServerEndpoint;
 import java.io.IOException;
-import java.security.Principal;
 import java.util.concurrent.ConcurrentHashMap;
 
 @ServerEndpoint("/websocket")
@@ -17,6 +16,11 @@ public class WebSocketServer {
     //连接
     @OnOpen
     public void onOpen(Session session) {
+        //获取用户的链接账号，一般用的是比如手机之类的
+        String phone = session.getQueryString();
+
+        //把会话保存起来
+        sessionMap.put(phone,session);
         System.out.println("connected...");
     }
 
@@ -40,8 +44,6 @@ public class WebSocketServer {
         throwable.printStackTrace();
     }
 
-
-
     //统一的发送消息方法
     public synchronized void sendMsg(Session session, String msg) {
         try {
@@ -49,5 +51,9 @@ public class WebSocketServer {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public Session getSession(String key){
+        return sessionMap.get(key);
     }
 }
