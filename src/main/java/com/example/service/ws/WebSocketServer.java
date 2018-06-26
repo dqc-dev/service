@@ -1,5 +1,6 @@
 package com.example.service.ws;
 
+import com.example.service.utils.WsUtil;
 import org.springframework.stereotype.Component;
 
 import javax.websocket.*;
@@ -11,8 +12,6 @@ import java.util.concurrent.ConcurrentHashMap;
 @Component
 public class WebSocketServer {
 
-    private final ConcurrentHashMap<String,Session> sessionMap = new ConcurrentHashMap<>();
-
     //连接
     @OnOpen
     public void onOpen(Session session) {
@@ -20,7 +19,7 @@ public class WebSocketServer {
         String phone = session.getQueryString();
 
         //把会话保存起来
-        sessionMap.put(phone,session);
+        WsUtil.putSession(phone,session);
         System.out.println("connected...");
     }
 
@@ -34,7 +33,6 @@ public class WebSocketServer {
     @OnMessage
     public void onMessage(String message, Session session) {
         System.out.println("【" + session.getId() + "】客户端的发送消息======内容【" + message + "】");
-        sendMsg(session,"hello!!!!");
     }
 
     //异常
@@ -44,16 +42,4 @@ public class WebSocketServer {
         throwable.printStackTrace();
     }
 
-    //统一的发送消息方法
-    public synchronized void sendMsg(Session session, String msg) {
-        try {
-            session.getBasicRemote().sendText(msg);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    public Session getSession(String key){
-        return sessionMap.get(key);
-    }
 }

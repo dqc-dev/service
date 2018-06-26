@@ -2,6 +2,7 @@ package com.example.service.consumer;
 
 import com.example.service.constants.MqttConstants;
 import com.example.service.handler.ReceiveMsgHandler;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.integration.annotation.ServiceActivator;
@@ -19,10 +20,13 @@ public class MqttConsumer {
         return new DirectChannel();
     }
 
+    @Autowired
+    private ReceiveMsgHandler receiveMsgHandler;
+
     @Bean
     public MessageProducer inbound() {
         MqttPahoMessageDrivenChannelAdapter adapter =
-                new MqttPahoMessageDrivenChannelAdapter(MqttConstants.MQTT_HOST, MqttConstants.MQTT_CLIENT_ID, "topic1");
+                new MqttPahoMessageDrivenChannelAdapter(MqttConstants.MQTT_HOST, MqttConstants.MQTT_CLIENT_ID, "dev/up/#");
         adapter.setCompletionTimeout(5000);
 
         DefaultPahoMessageConverter converter = new DefaultPahoMessageConverter();
@@ -36,6 +40,6 @@ public class MqttConsumer {
     @Bean
     @ServiceActivator(inputChannel = "mqttInputChannel")
     public MessageHandler handler() {
-        return new ReceiveMsgHandler();
+        return receiveMsgHandler;
     }
 }
