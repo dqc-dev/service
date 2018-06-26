@@ -26,11 +26,11 @@ public class MqttConsumer {
     @Bean
     public MessageProducer inbound() {
         MqttPahoMessageDrivenChannelAdapter adapter =
-                new MqttPahoMessageDrivenChannelAdapter(MqttConstants.MQTT_HOST, MqttConstants.MQTT_CLIENT_ID, "dev/up/#");
+                new MqttPahoMessageDrivenChannelAdapter(MqttConstants.MQTT_HOST, MqttConstants.MQTT_CLIENT_ID, "world/cup/#");
         adapter.setCompletionTimeout(5000);
 
         DefaultPahoMessageConverter converter = new DefaultPahoMessageConverter();
-        converter.setPayloadAsBytes(true);
+//        converter.setPayloadAsBytes(true);
         adapter.setConverter(converter);
         adapter.setQos(1);
         adapter.setOutputChannel(mqttInputChannel());
