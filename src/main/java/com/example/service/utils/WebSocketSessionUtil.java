@@ -4,7 +4,7 @@ import javax.websocket.Session;
 import java.io.IOException;
 import java.util.concurrent.ConcurrentHashMap;
 
-public class WsUtil {
+public class WebSocketSessionUtil {
 
     private static final ConcurrentHashMap<String,Session> sessionMap = new ConcurrentHashMap<>();
 
