@@ -4,6 +4,7 @@ import com.alibaba.fastjson.JSONObject;
 import com.example.service.bean.MqttStringBean;
 import com.example.service.mqtt.send.MqttMsgPublisher;
 import com.example.service.utils.WebSocketSessionUtil;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import javax.websocket.*;
@@ -13,6 +14,7 @@ import javax.websocket.server.ServerEndpoint;
 @Component
 public class WebSocketServer {
 
+    @Autowired
     private MqttMsgPublisher mqttMsgPublisher;
 
     //连接
