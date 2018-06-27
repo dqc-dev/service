@@ -1,4 +1,4 @@
-package com.example.service.task;
+package com.example.service.consumer;
 
 import com.example.service.utils.RedisSimulateUtil;
 import com.example.service.utils.WebSocketSessionUtil;
