@@ -54,7 +54,9 @@ public class MqttConfig {
     @Bean
     public MessageProducer inbound() {
         MqttPahoMessageDrivenChannelAdapter adapter =
-                new MqttPahoMessageDrivenChannelAdapter(MqttConstants.MQTT_HOST, MqttConstants.MQTT_CLIENT_ID, mqttClientFactory(), "world/cup/#");
+                new MqttPahoMessageDrivenChannelAdapter(MqttConstants.MQTT_HOST,
+                        MqttConstants.MQTT_CLIENT_ID, mqttClientFactory(),
+                        "world/cup/#");
         adapter.setCompletionTimeout(5000);
 
         DefaultPahoMessageConverter converter = new DefaultPahoMessageConverter();
