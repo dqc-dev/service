@@ -5,18 +5,14 @@ import com.example.service.bean.MqttStringBean;
 import com.example.service.mqtt.send.MqttMsgPublisher;
 import com.example.service.utils.SpringUtil;
 import com.example.service.utils.WebSocketSessionUtil;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import javax.websocket.*;
 import javax.websocket.server.ServerEndpoint;
 
-@ServerEndpoint("/websocket")
+@ServerEndpoint(value = "/websocket")
 @Component
 public class WebSocketServer {
-
-    @Autowired
-    private MqttMsgPublisher mqttMsgPublisher;
 
     //连接
     @OnOpen
@@ -40,7 +36,7 @@ public class WebSocketServer {
     @OnMessage
     public void onMessage(String message, Session session) {
 
-//        MqttMsgPublisher mqttMsgPublisher = (MqttMsgPublisher) SpringUtil.getBean(MqttMsgPublisher.class);
+        MqttMsgPublisher mqttMsgPublisher = (MqttMsgPublisher) SpringUtil.getBean(MqttMsgPublisher.class);
         MqttStringBean bean = JSONObject.parseObject(message, MqttStringBean.class);
         mqttMsgPublisher.sendMessage(bean.getTopic(),bean.getPayload());
 
