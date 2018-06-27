@@ -1,7 +1,7 @@
 package com.example.service.config;
 
 import com.example.service.constants.MqttConstants;
-import com.example.service.consumer.MsgArrivedTask;
+import com.example.service.mqtt.receive.MsgArrivedTask;
 import com.example.service.utils.ThreadPoolUtil;
 import org.eclipse.paho.client.mqttv3.MqttConnectOptions;
 import org.springframework.context.annotation.Bean;

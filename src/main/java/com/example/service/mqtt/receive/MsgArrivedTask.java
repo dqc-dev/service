@@ -1,4 +1,4 @@
-package com.example.service.consumer;
+package com.example.service.mqtt.receive;
 
 import com.example.service.utils.RedisSimulateUtil;
 import com.example.service.utils.WebSocketSessionUtil;

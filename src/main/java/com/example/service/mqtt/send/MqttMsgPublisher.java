@@ -1,4 +1,4 @@
-package com.example.service.producer;
+package com.example.service.mqtt.send;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.integration.mqtt.outbound.MqttPahoMessageHandler;

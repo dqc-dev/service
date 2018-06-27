@@ -1,11 +1,9 @@
 package com.example.service.ws;
 
-import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.example.service.bean.MqttStringBean;
-import com.example.service.producer.MqttMsgPublisher;
+import com.example.service.mqtt.send.MqttMsgPublisher;
 import com.example.service.utils.WebSocketSessionUtil;
-import org.springframework.boot.jackson.JsonObjectDeserializer;
 import org.springframework.stereotype.Component;
 
 import javax.websocket.*;
