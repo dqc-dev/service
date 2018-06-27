@@ -1,6 +1,11 @@
 package com.example.service.ws;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
+import com.example.service.bean.MqttStringBean;
+import com.example.service.producer.MqttMsgPublisher;
 import com.example.service.utils.WebSocketSessionUtil;
+import org.springframework.boot.jackson.JsonObjectDeserializer;
 import org.springframework.stereotype.Component;
 
 import javax.websocket.*;
@@ -9,6 +14,8 @@ import javax.websocket.server.ServerEndpoint;
 @ServerEndpoint("/websocket")
 @Component
 public class WebSocketServer {
+
+    private MqttMsgPublisher mqttMsgPublisher;
 
     //连接
     @OnOpen
@@ -31,6 +38,10 @@ public class WebSocketServer {
     //接收消息   客户端发送过来的消息
     @OnMessage
     public void onMessage(String message, Session session) {
+
+        MqttStringBean bean = JSONObject.parseObject(message, MqttStringBean.class);
+        mqttMsgPublisher.sendMessage(bean.getTopic(),bean.getPayload());
+
         System.out.println("【" + session.getId() + "】客户端的发送消息======内容【" + message + "】");
     }
 
