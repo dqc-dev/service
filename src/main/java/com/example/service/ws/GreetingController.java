@@ -1,15 +1,11 @@
 package com.example.service.ws;
 
 import com.example.service.bean.Greeting;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.messaging.handler.annotation.Header;
 import org.springframework.messaging.handler.annotation.Headers;
 import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.handler.annotation.SendTo;
-import org.springframework.messaging.simp.SimpMessageSendingOperations;
 import org.springframework.messaging.simp.annotation.SendToUser;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Map;
@@ -17,8 +13,6 @@ import java.util.Map;
 @RestController
 public class GreetingController {
 
-    @Autowired
-    private SimpMessageSendingOperations simpMessageSendingOperations;
 
     /**
      * 表示服务端可以接收客户端通过主题“/app/hello”发送过来的消息，客户端需要在主题"/topic/hello"上监听并接收服务端发回的消息
@@ -42,20 +36,10 @@ public class GreetingController {
      */
     @MessageMapping("/message")
     @SendToUser("/message")
-    public Greeting handleSubscribe() {
-        System.out.println("this is the @SubscribeMapping('/marco')");
-        return new Greeting("I am a msg from SubscribeMapping('/macro').");
+    public void handleSubscribe() {
+
     }
 
-    /**
-     * 测试对指定用户发送消息方法
-     *
-     * @return
-     */
-    @RequestMapping(path = "/send", method = RequestMethod.GET)
-    public Greeting send() {
-        simpMessageSendingOperations.convertAndSendToUser("1", "/message", new Greeting("I am a msg from SubscribeMapping('/macro')."));
-        return new Greeting("I am a msg from SubscribeMapping('/macro').");
-    }
+
 }
  
