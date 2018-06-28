@@ -23,5 +23,4 @@ public class WebSocketSessionUtil {
             e.printStackTrace();
         }
     }
-
 }
