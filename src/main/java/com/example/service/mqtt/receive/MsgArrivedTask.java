@@ -13,7 +13,7 @@ public class MsgArrivedTask implements Runnable {
 
     private Message<?> message;
 
-    public MsgArrivedTask(Message<?> message){
+    public MsgArrivedTask(Message<?> message) {
         this.message = message;
     }
 

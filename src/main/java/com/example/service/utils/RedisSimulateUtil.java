@@ -17,7 +17,7 @@ public class RedisSimulateUtil {
         redisRef.put("france", list);
     }
 
-    public static List<String> get(String key){
+    public static List<String> get(String key) {
         return redisRef.get(key);
     }
 }

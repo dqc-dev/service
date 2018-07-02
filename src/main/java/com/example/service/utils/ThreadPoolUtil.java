@@ -7,7 +7,7 @@ public class ThreadPoolUtil {
 
     private static final ExecutorService executorService = Executors.newFixedThreadPool(4);
 
-    public static void execute(Runnable job){
+    public static void execute(Runnable job) {
         executorService.execute(job);
     }
 }

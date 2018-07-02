@@ -13,7 +13,7 @@ public class MqttMsgPublisher {
     @Autowired
     private MqttPahoMessageHandler mqttPahoMessageHandler;
 
-    public void sendMessage(String topic,String payload){
+    public void sendMessage(String topic, String payload) {
         Message<String> message = MessageBuilder.withPayload(payload).setHeader(MqttHeaders.TOPIC, topic).build();
         mqttPahoMessageHandler.handleMessage(message);
     }
