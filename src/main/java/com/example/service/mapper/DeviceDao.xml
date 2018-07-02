@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.globalvillage.bg.common.mybatis.dao.device.DeviceDao">
-  <resultMap id="BaseResultMap" type="com.globalvillage.bg.common.mybatis.entity.device.Device">
+<mapper namespace="com.example.service.dao.device.DeviceDao">
+  <resultMap id="BaseResultMap" type="com.example.service.entity.device.Device">
     <!--
       WARNING - @mbg.generated
     -->

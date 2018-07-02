@@ -21,4 +21,4 @@ spring:
 mybatis:
   mapper-locations: classpath*:com/example/service/mapper/**/*.xml
   config-location: classpath:mybatis/mybatis-config.xml
-  type-aliases-package: classpath:com.demo.entity.*
+  type-aliases-package: classpath:com.example.service.entity.*

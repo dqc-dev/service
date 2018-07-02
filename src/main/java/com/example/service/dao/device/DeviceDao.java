@@ -1,4 +1,4 @@
-package com.example.service.dao;
+package com.example.service.dao.device;
 
 
 import com.example.service.entity.device.Device;
