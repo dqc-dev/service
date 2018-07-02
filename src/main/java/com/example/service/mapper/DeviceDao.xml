@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.globalvillage.bg.common.mybatis.dao.device.DeviceDao">
+  <resultMap id="BaseResultMap" type="com.globalvillage.bg.common.mybatis.entity.device.Device">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="device_id" jdbcType="BIGINT" property="deviceId" />
+    <result column="nick_name" jdbcType="VARCHAR" property="nickName" />
+    <result column="mqtt_client_id" jdbcType="VARCHAR" property="mqttClientId" />
+    <result column="mqtt_password" jdbcType="VARCHAR" property="mqttPassword" />
+    <result column="sn" jdbcType="VARCHAR" property="sn" />
+    <result column="device_model_id" jdbcType="BIGINT" property="deviceModelId" />
+    <result column="device_batch_id" jdbcType="BIGINT" property="deviceBatchId" />
+    <result column="remaining_life" jdbcType="BIGINT" property="remainingLife" />
+    <result column="is_active" jdbcType="INTEGER" property="isActive" />
+    <result column="is_saled" jdbcType="INTEGER" property="isSaled" />
+    <result column="is_fault" jdbcType="INTEGER" property="isFault" />
+    <result column="is_waste" jdbcType="INTEGER" property="isWaste" />
+    <result column="is_connect" jdbcType="INTEGER" property="isConnect" />
+    <result column="init_state" jdbcType="INTEGER" property="initState" />
+    <result column="init_time" jdbcType="TIMESTAMP" property="initTime" />
+    <result column="fault_msg" jdbcType="VARCHAR" property="faultMsg" />
+    <result column="is_lock" jdbcType="INTEGER" property="isLock" />
+    <result column="latitude" jdbcType="VARCHAR" property="latitude" />
+    <result column="longitude" jdbcType="VARCHAR" property="longitude" />
+    <result column="full_address" jdbcType="VARCHAR" property="fullAddress" />
+    <result column="service_type" jdbcType="INTEGER" property="serviceType" />
+    <result column="memo" jdbcType="VARCHAR" property="memo" />
+    <result column="create_date" jdbcType="TIMESTAMP" property="createDate" />
+    <result column="modify_date" jdbcType="TIMESTAMP" property="modifyDate" />
+    <result column="area_id" jdbcType="BIGINT" property="areaId" />
+    <result column="class_id" jdbcType="BIGINT" property="classId" />
+    <result column="order_id" jdbcType="BIGINT" property="orderId" />
+    <result column="school_id" jdbcType="BIGINT" property="schoolId" />
+    <result column="dealer_id" jdbcType="BIGINT" property="dealerId" />
+    <result column="strainer_change_time" jdbcType="TIMESTAMP" property="strainerChangeTime" />
+    <result column="datamodule_version" jdbcType="VARCHAR" property="datamoduleVersion" />
+    <result column="mcu_version" jdbcType="VARCHAR" property="mcuVersion" />
+    <result column="change_times" jdbcType="INTEGER" property="changeTimes" />
+    <result column="mcu_soft_version" jdbcType="VARCHAR" property="mcuSoftVersion" />
+    <result column="iccid" jdbcType="VARCHAR" property="iccid" />
+    <result column="device_order" jdbcType="INTEGER" property="deviceOrder" />
+    <result column="first_use_time" jdbcType="TIMESTAMP" property="firstUseTime" />
+    <result column="company_id" jdbcType="BIGINT" property="companyId" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    device_id, nick_name, mqtt_client_id, mqtt_password, sn, device_model_id, device_batch_id, 
+    remaining_life, is_active, is_saled, is_fault, is_waste, is_connect, init_state, 
+    init_time, fault_msg, is_lock, latitude, longitude, full_address, service_type, strainer_id,
+    memo, create_date, modify_date, area_id, class_id, order_id, school_id, dealer_id,
+    strainer_change_time, datamodule_version, mcu_version, change_times, mcu_soft_version,
+    iccid, device_order, first_use_time, company_id
+  </sql>
+
+
+</mapper>
