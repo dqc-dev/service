@@ -1,11 +1,12 @@
-package com.example.service.service.base.impl;
+package com.example.service.service.mqtt.impl;
 
 import com.example.service.constants.MqttConstants;
 import com.example.service.entity.device.Device;
 import com.example.service.enums.device.DeviceActiveEnum;
 import com.example.service.enums.device.DeviceConnectEnum;
 import com.example.service.mqtt.send.MqttMsgPublisher;
-import com.example.service.service.base.ConnTopicService;
+import com.example.service.service.base.impl.BaseTopicServiceImpl;
+import com.example.service.service.mqtt.ConnTopicService;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
