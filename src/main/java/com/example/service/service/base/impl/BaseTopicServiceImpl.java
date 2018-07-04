@@ -20,7 +20,7 @@ public abstract class BaseTopicServiceImpl implements BaseTopicService {
     @Override
     public void processMessageArrived(String topic, byte[] payload) throws Exception {
 
-        String sn = topic.substring(topic.lastIndexOf("/"));
+        String sn = topic.substring(topic.lastIndexOf("/")+1);
 
         Device device = deviceService.selectBySn(sn);
 
