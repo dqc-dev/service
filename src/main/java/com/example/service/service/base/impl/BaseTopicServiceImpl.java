@@ -20,7 +20,17 @@ public abstract class BaseTopicServiceImpl implements BaseTopicService {
     @Override
     public void processMessageArrived(String topic, byte[] payload) throws Exception {
 
-        doInMessageArrived(topic, payload, null);
+        String sn = topic.substring(topic.lastIndexOf("/"));
+
+        Device device = deviceService.selectBySn(sn);
+
+        if(device!=null){
+            doInMessageArrived(topic, payload, device);
+        }else {
+            System.out.println("sn="+sn+"的设备不存在！！！");
+        }
+
+
 
     }
 

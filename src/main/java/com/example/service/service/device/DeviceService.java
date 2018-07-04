@@ -9,4 +9,5 @@ import com.example.service.service.base.IService;
  */
 public interface DeviceService extends IService<Device> {
 
+    Device selectBySn(String sn);
 }

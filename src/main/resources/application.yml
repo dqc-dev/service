@@ -1,8 +1,8 @@
 spring:
   datasource:
-    url: jdbc:mysql://120.27.192.55:3306/local?useUnicode=true&characterEncoding=UTF-8
-    username: root
-    password: 123456
+    url: jdbc:mysql://120.27.192.55:3306/dqcmgr?useUnicode=true&characterEncoding=UTF-8&allowMultiQueries=true
+    username: dqcsys
+    password: dqc610sys114A
     driverClassName: com.mysql.jdbc.Driver
     type: com.alibaba.druid.pool.DruidDataSource
     filters: stat

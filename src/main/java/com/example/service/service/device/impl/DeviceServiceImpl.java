@@ -11,4 +11,11 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class DeviceServiceImpl extends IServiceImpl<Device> implements DeviceService {
+
+    @Override
+    public Device selectBySn(String sn) {
+        Device device = new Device();
+        device.setSn(sn);
+        return this.selectOne(device);
+    }
 }

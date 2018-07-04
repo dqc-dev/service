@@ -6,6 +6,9 @@ public interface MqttConstants {
 
     String MQTT_CLIENT_ID = "testClient";
 
+    /**设备上报*/
+    String MQTT_TOPIC_DEV_UP_PREFIX = "dev/up/#";
+
     /**app用户添加设备报文*/
     String MQTT_TOPIC_ADD_DEV = "user/dev/add";
     /**app用户删除设备报文*/

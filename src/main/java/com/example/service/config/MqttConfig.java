@@ -56,11 +56,11 @@ public class MqttConfig {
         MqttPahoMessageDrivenChannelAdapter adapter =
                 new MqttPahoMessageDrivenChannelAdapter(MqttConstants.MQTT_HOST,
                         MqttConstants.MQTT_CLIENT_ID, mqttClientFactory(),
-                        "world/cup/#");
+                        MqttConstants.MQTT_TOPIC_DEV_UP_PREFIX);
         adapter.setCompletionTimeout(5000);
 
         DefaultPahoMessageConverter converter = new DefaultPahoMessageConverter();
-//        converter.setPayloadAsBytes(true);
+        converter.setPayloadAsBytes(true);
         adapter.setConverter(converter);
         adapter.setQos(1);
         adapter.setOutputChannel(mqttInputChannel());
